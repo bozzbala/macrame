@@ -179,13 +179,13 @@ ul{
 }
 .footer-col{
    width: 25%;
-   padding: 0 15px;
+   padding: 0 20px;
 }
 .footer-col h4{
 	font-size: 18px;
 	color: #F8D3BF;
 	text-transform: capitalize;
-	margin-bottom: 35px;
+	margin-bottom: 25px;
 	font-weight: 500;
 	position: relative;
 }
@@ -194,6 +194,7 @@ ul{
 	position: absolute;
 	left:0;
 	bottom: -10px;
+    background-color: #c5784b;
 	height: 2px;
 	box-sizing: border-box;
 	width: 50px;
