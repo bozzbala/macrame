@@ -16,7 +16,7 @@
 		include 'header.php'
 	?>
 
-	<main>
+	<main>	
 		<section class="intro">
 			<div class="intro-header">БОЛЬШОЙ АССОРТИМЕНТ ТОВАРОВ</div>
 			<p>Всё что нужно для создания макраме</p>
