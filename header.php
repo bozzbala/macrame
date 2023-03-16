@@ -11,5 +11,6 @@
             <div class="menu"><a href="#">ОБО МНЕ</a></div>
             <div class="menu"><a href="#"><img src="./images/cart.png"></a></div>
         </nav>
+        <div class="sidebar">sidebar</div>
     </div>
 </header>

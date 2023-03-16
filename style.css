@@ -1,26 +1,27 @@
 @import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;400;500;600;700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
-*{
+* {
     margin: 0;
     padding: 0;
     text-decoration: none;
     box-sizing: border-box;
 }
 
-html{
+html {
     /* font-family: 'Comfortaa', cursive; */
     font-family: 'Poppins', sans-serif;
     font-size: 16px;
 }
+
 /* HEADER */
-header{
+header {
     background-color: white;
     position: fixed;
     width: 100%;
     box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.25);
 }
 
-.header-wrapper{
+.header-wrapper {
     width: 1150px;
     height: 70px;
     margin: 0 auto;
@@ -28,40 +29,45 @@ header{
     justify-content: space-between;
 }
 
-.logo{
+.logo {
     display: flex;
     align-items: center;
 }
 
-.logo img{
+.logo img {
     height: 50px;
 }
 
-.logo div{
+.logo div {
     font-size: 24px;
 }
 
-nav{
+nav {
     display: flex;
     align-items: center;
 }
 
-.menu a{
+.menu a {
     color: #707070;
     font-size: 12px;
     margin-right: 60px;
 }
 
-.menu img{
+.menu img {
     height: 30px;
 }
 
+.sidebar{
+    display: none;
+}
+
+
 /* MAIN */
-main{
+main {
     padding-top: 70px;
 }
 
-.intro{
+.intro {
     height: 65vh;
     background-image: url("./images/intro.png");
     background-size: cover;
@@ -73,25 +79,25 @@ main{
     color: white;
 }
 
-.intro-header{
+.intro-header {
     font-size: 2em;
 }
 
-.intro p{
+.intro p {
     font-size: 18px;
     margin: 17px 0px 45px 0px;
     font-family: 'Comfortaa', cursive;
 }
 
-.button-main{
+.button-main {
     font-size: 14px;
     padding: 10px 50px;
     background-color: #C3B778;
     border-radius: 5px;
-    color: white;   
+    color: white;
 }
 
-.section-name{
+.section-name {
     padding-bottom: 6px;
     border-bottom: 1px solid black;
     margin: 45px auto 35px auto;
@@ -102,7 +108,7 @@ main{
 
 /* CATEGORIES */
 
-.categories{
+.categories {
     display: flex;
     justify-content: space-between;
     width: 1150px;
@@ -111,7 +117,7 @@ main{
 
 }
 
-.category{
+.category {
     background-image: url("./images/materials.png");
     background-size: cover;
     height: 370px;
@@ -124,13 +130,13 @@ main{
     border-radius: 5px;
 }
 
-.category-name{
+.category-name {
     font-size: 2em;
     width: 90%;
     text-align: center;
 }
 
-.category-button{
+.category-button {
     padding: 11px 22px;
     font-size: 12px;
     background-color: #D8A92F;
@@ -140,7 +146,7 @@ main{
 }
 
 
-.works{
+.works {
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
@@ -148,7 +154,7 @@ main{
     margin: 0 auto;
 }
 
-.work{
+.work {
     margin-bottom: 50px;
     width: 350px;
     height: 370px;
@@ -156,94 +162,108 @@ main{
     border-radius: 5px;
 }
 
-.work img{
+.work img {
     height: 100%;
 }
-body{
-	line-height: 1.5;
+
+.container {
+    max-width: 1150px;
+    margin: auto;
 }
-.container{
-	max-width: 1170px;
-	margin:auto;
+
+.row {
+    display: flex;
+    flex-wrap: wrap;
 }
-.row{
-	display: flex;
-	flex-wrap: wrap;
-}
-ul{
-	list-style: none;
-}
-.footer{
-	background-color: #875030;
+
+.footer {
+    background-color: #875030;
     padding: 70px 0;
 }
-.footer-col{
-   width: 25%;
-   padding: 0 20px;
+
+.footer-col {
+    width: 25%;
+    padding: 20px;
 }
-.footer-col h4{
-	font-size: 18px;
-	color: #F8D3BF;
-	text-transform: capitalize;
-	margin-bottom: 25px;
-	font-weight: 500;
-	position: relative;
+
+.footer-col ul {
+    list-style: none;
 }
-.footer-col h4::before{
-	content: '';
-	position: absolute;
-	left:0;
-	bottom: -10px;
-    background-color: #c5784b;
-	height: 2px;
-	box-sizing: border-box;
-	width: 50px;
+
+.footer-col h4 {
+    font-size: 18px;
+    color: #F8D3BF;
+    text-transform: capitalize;
+    margin-bottom: 25px;
+    font-weight: 500;
+    position: relative;
 }
-.footer-col ul li:not(:last-child){
-	margin-bottom: 10px;
+
+.footer-col ul li:not(:last-child) {
+    margin-bottom: 10px;
 }
-.footer-col ul li a{
-	font-size: 16px;
-	text-transform: capitalize;
-	color: #F8D3BF;
-	text-decoration: none;
-	font-weight: 300;
-	color: #FFDAAF;
-	display: block;
-	transition: all 0.3s ease;
+
+.footer-col ul li a {
+    font-size: 16px;
+    text-transform: capitalize;
+    color: #F8D3BF;
+    text-decoration: none;
+    font-weight: 300;
+    color: #FFDAAF;
+    display: block;
+    transition: all 0.3s ease;
 }
-.footer-col ul li a:hover{
-	color: #FFFFFF;
+
+.footer-col ul li a:hover {
+    color: #FFFFFF;
 
 }
-.footer-col .social-links a{
-	display: inline-block;
-	height: 40px;
-	width: 40px;
-	background-color: rgba(255,255,255,0.2);
-	text-align: center;
-	line-height: 40px;
-	border-radius: 50%;
-	color: #ffffff;
-	transition: all 0.5s ease;
+
+.footer-col .social-links a {
+    display: inline-block;
+    height: 40px;
+    width: 40px;
+    background-color: rgba(255, 255, 255, 0.2);
+    text-align: center;
+    line-height: 40px;
+    border-radius: 50%;
+    color: #ffffff;
+    transition: all 0.5s ease;
 }
-.footer-col .social-links a:hover{
-	color: #24262b;
-	background-color: #ffffff;
+
+.footer-col .social-links a:hover {
+    color: #24262b;
+    background-color: #ffffff;
 }
-.footer-col .footer-tex{
+
+.footer-col .footer-tex {
     color: #FFDAAF;
 }
 
 /*responsive*/
-@media(max-width: 767px){
-  .footer-col{
-    width: 50%;
+
+@media (max-width: 1150px) {
+    .header-wrapper {
+        width: 100%;
+    }
+}
+
+@media(max-width: 767px) {
+    .footer-col {
+        width: 50%;
+    }
+
+    nav{
+        display: none;
+    }
+    .sidebar{
+        display: block;
+    }
 
 }
-}
-@media(max-width: 574px){
-  .footer-col{
-    width: 100%;
-}
+
+@media(max-width: 426px) {
+    .footer-col {
+        width: 100%;
+    }
 }
