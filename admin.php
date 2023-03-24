@@ -1,3 +1,8 @@
+<?php
+    if(!isset($_COOKIE['macrame'])) {
+        header("Location: /BLL/loginPage.php");
+    }
+?>
 <!DOCTYPE html>
 <html lang="en">
 
