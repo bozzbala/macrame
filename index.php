@@ -1,3 +1,4 @@
+<?php include 'BLL/db.php'?>
 <!DOCTYPE html>
 <html lang="en">
 
