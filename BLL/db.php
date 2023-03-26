@@ -1,15 +1,9 @@
 <?php
-$hostname = "localhost";
-$username = "root";
-$password = "";
-$db = "macrame";
+$mysqli = mysqli_connect("localhost", "root", "", "macrame");
 
-$conn = new mysqli($hostname, $username, $password, $db);
-
-// Check connection
-if ($conn->connect_error) {
-  die("Connection failed: " . $conn->connect_error);
+// Проверка соединения
+if (mysqli_connect_errno()) {
+    printf("Ошибка соединения: %s\n", mysqli_connect_error());
+    exit();
 }
-
-
 ?>
