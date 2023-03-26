@@ -31,38 +31,72 @@
 </head>
 
 <body>
+    
     <div class="container">
         <div class="row">
             <div class="col-sm-6 col">
                 <form class="new-product" action="/BLL/newProduct.php">
                     <h1>Добавить новый товар</h1>
                     <div class="mb-3">
-                        <label for="exampleInputEmail1" class="form-label">Название товара</label>
-                        <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                        <label for="name" class="form-label">Название товара</label>
+                        <input type="text" class="form-control" id="name" aria-describedby="emailHelp">
                     </div>
                     <div class="mb-3">
-                        <label for="exampleInputPassword1" class="form-label">Цена</label>
-                        <input type="text" class="form-control" id="exampleInputPassword1">
+                        <label for="price" class="form-label">Цена</label>
+                        <input type="text" class="form-control" id="price">
                     </div>
                     <div class="mb-3">
-                        <label for="exampleFormControlTextarea1" class="form-label">Описание</label>
-                        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                        <label for="description" class="form-label">Описание</label>
+                        <textarea class="form-control" id="description" rows="3"></textarea>
                     </div>
                     <br>
                     <div class="mb-3">
-                        <label for="formFileMultiple" class="form-label">Фотографии</label>
-                        <input class="form-control" type="file" id="formFileMultiple" multiple>
+                        <label for="image_url" class="form-label">Фотографии</label>
+                        <input class="form-control" type="file" id="image_url" multiple>
                     </div>
                     <br>
-                    <select class="form-select" aria-label="Default select example">
+                    <select for="category" class="form-select" aria-label="Default select example">
                         <option selected>Выберите категорию</option>
                         <option value="1">Шнуры</option>
                         <option value="2">Наборы</option>
                         <option value="3">Мастер-классы</option>
-                    </select>
+                     </select>
                     <br>
                     <button type="submit" class="btn btn-primary">Отправить</button>
                 </form>
+                <?php
+$host = 'localhost';
+$user = 'root';
+$password = '';
+$dbname = 'macrame';
+
+// Подключаемся к базе данных
+$mysqli = mysqli_connect($host, $user, $password, $dbname);
+if (!$mysqli) {
+    die("Connection failed: " . mysqli_connect_error());
+}
+
+// Получаем данные из формы
+$name = mysqli_real_escape_string($mysqli, $_POST['name']);
+$description = mysqli_real_escape_string($mysqli, $_POST['description']);
+$price = mysqli_real_escape_string($mysqli, $_POST['price']);
+$image_url = mysqli_real_escape_string($mysqli, $_POST['image_url']);
+$category = mysqli_real_escape_string($mysqli, $_POST['category']);
+
+// Создаем SQL-запрос для добавления товара в базу данных
+$sql = "INSERT INTO `товары` (`name`, `description`, `price`, `image_url`, `category`) 
+        VALUES ('$name', '$description', '$price', '$image_url', '$category')";
+
+// Выполняем запрос
+if (mysqli_query($mysqli, $sql)) {
+    echo "Товар успешно добавлен в базу данных.";
+} else {
+    echo "Ошибка: " . mysqli_error($mysqli);
+}
+
+// Закрываем соединение с базой данных
+mysqli_close($mysqli);
+?>
                 <table class="table table-striped table-hover">
                     <thead>
                         <tr>
