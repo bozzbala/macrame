@@ -65,71 +65,43 @@
     <button type="submit" class="btn btn-primary">Отправить</button>
 </form>
 
-                
 
-                <table class="table table-striped table-hover">
-                    <thead>
-                        <tr>
-                            <th scope="col">#</th>
-                            <th scope="col">Название</th>
-                            <th scope="col">Цена</th>
-                            <th scope="col">В наличии</th>
-                            <th scope="col">Действие</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <th scope="row">1</th>
-                            <td>Название товара</td>
-                            <td>19000</td>
-                            <td>Да</td>
-                            <td>
-                                <button type="button" class="btn btn-outline-success">Редактировать</button>
-                                <button type="button" class="btn btn-outline-danger">Удалить</button>
-                            </td>
-                        </tr>
-                        <tr>
-                            <th scope="row">2</th>
-                            <td>Название товара</td>
-                            <td>19000</td>
-                            <td>Да</td>
-                            <td>
-                                <button type="button" class="btn btn-outline-success">Редактировать</button>
-                                <button type="button" class="btn btn-outline-danger">Удалить</button>
-                            </td>
-                        </tr>
-                        <tr>
-                            <th scope="row">3</th>
-                            <td>Название товара</td>
-                            <td>19000</td>
-                            <td>Да</td>
-                            <td>
-                                <button type="button" class="btn btn-outline-success">Редактировать</button>
-                                <button type="button" class="btn btn-outline-danger">Удалить</button>
-                            </td>
-                        </tr>
-                        <tr>
-                            <th scope="row">4</th>
-                            <td>Название товара</td>
-                            <td>19000</td>
-                            <td>Да</td>
-                            <td>
-                                <button type="button" class="btn btn-outline-success">Редактировать</button>
-                                <button type="button" class="btn btn-outline-danger">Удалить</button>
-                            </td>
-                        </tr>
-                        <tr>
-                            <th scope="row">5</th>
-                            <td>Название товара</td>
-                            <td>19000</td>
-                            <td>Да</td>
-                            <td>
-                                <button type="button" class="btn btn-outline-success">Редактировать</button>
-                                <button type="button" class="btn btn-outline-danger">Удалить</button>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
+<?php
+include 'BLL/db.php';
+$result = mysqli_query($mysqli, "SELECT * FROM products");
+
+// Вывод таблицы
+echo '<table class="table table-striped table-hover">';
+echo '<thead><tr><th>#</th><th>Название</th><th>Цена</th><th>В наличии</th><th>Действие</th></tr></thead>';
+echo '<tbody>';
+while ($row = mysqli_fetch_assoc($result)) {
+    echo '<tr>';
+    echo '<th scope="row">' . $row['id'] . '</th>';
+    echo '<td>' . $row['name'] . '</td>';
+    echo '<td>' . $row['price'] . '</td>';
+    echo '<td>' . ($row['available'] ? 'Да' : 'Нет') . '</td>';
+    echo '<td>';
+    echo '<form method="POST" action="setAvailable.php">';
+echo '<input type="hidden" name="id" value="' . $row['id'] . '">';
+if ($row['available']) {
+    echo '<button type="submit" name="available_' . $row['id'] . '" value="0" class="btn btn-outline-primary">-</button>';
+} else {
+    echo '<button type="submit" name="available_' . $row['id'] . '" value="1" class="btn btn-outline-primary">+</button>';
+}
+    echo ' '; 
+    echo '<button type="button" class="btn btn-outline-success">изменить</button>';
+    echo ' '; 
+    echo '<button type="button" class="btn btn-outline-danger">Удалить</button>';
+
+  
+    echo '</td>';
+    echo '</tr>';
+}
+echo '</tbody>';
+echo '</table>';
+
+mysqli_close($mysqli);
+?>
             </div>
             <div class="col-sm-6 col">
                 <table class="table table-striped table-hover">
