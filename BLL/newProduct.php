@@ -7,11 +7,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $total_count = count($_FILES['upload']);
     $filenames = "";
     for ($i = 0; $i < $total_count; $i++) {
-        $target_dir = "../images/";
+        $target_dir = "../db/";
         $target_file = $target_dir . basename($_FILES["upload"]["name"][$i]);
         $uploadOk = 1;
         $imageFileType = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
-        $filenames .= basename($_FILES["upload"]["name"][$i]) . " ";
 
         if (isset($_POST["submit"])) {
             $check = getimagesize($_FILES["upload"]["tmp_name"][$i]);
@@ -24,13 +23,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             }
         }
 
-        // Check file size
-        if ($_FILES["upload"]["size"][$i] > 500000) {
-            echo "Sorry, your file is too large.";
-            $uploadOk = 0;
-        }
+        // if ($_FILES["upload"]["size"][$i] > 500000) {
+        //     echo "Sorry, your file is too large.";
+        //     $uploadOk = 0;
+        // }
 
-        // Allow certain file formats
         if (
             $imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg"
             && $imageFileType != "gif"
@@ -39,13 +36,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $uploadOk = 0;
         }
 
-        // Check if $uploadOk is set to 0 by an error
         if ($uploadOk == 0) {
             echo "Sorry, your file was not uploaded.";
-            // if everything is ok, try to upload file
         } else {
             if (move_uploaded_file($_FILES["upload"]["tmp_name"][$i], $target_file)) {
                 echo "The file " . htmlspecialchars(basename($_FILES["upload"]["name"][$i])) . " has been uploaded.";
+                $filenames .= basename($_FILES["upload"]["name"][$i]) . " ";
             } else {
                 echo "Sorry, there was an error uploading your file.";
             }
@@ -71,4 +67,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     // Закрываем соединение с базой данных
     mysqli_close($mysqli);
+    header('Location: ' . $_SERVER['HTTP_REFERER']);
+    exit;
 }
