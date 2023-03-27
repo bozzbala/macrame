@@ -2,16 +2,65 @@
 include 'db.php';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $files = $_FILES['upload'];
+
+    $total_count = count($_FILES['upload']);
+    $filenames = "";
+    for ($i = 0; $i < $total_count; $i++) {
+        $target_dir = "../images/";
+        $target_file = $target_dir . basename($_FILES["upload"]["name"][$i]);
+        $uploadOk = 1;
+        $imageFileType = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
+        $filenames .= basename($_FILES["upload"]["name"][$i]) . " ";
+
+        if (isset($_POST["submit"])) {
+            $check = getimagesize($_FILES["upload"]["tmp_name"][$i]);
+            if ($check !== false) {
+                echo "File is an image - " . $check["mime"] . ".";
+                $uploadOk = 1;
+            } else {
+                echo "File is not an image.";
+                $uploadOk = 0;
+            }
+        }
+
+        // Check file size
+        if ($_FILES["upload"]["size"][$i] > 500000) {
+            echo "Sorry, your file is too large.";
+            $uploadOk = 0;
+        }
+
+        // Allow certain file formats
+        if (
+            $imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg"
+            && $imageFileType != "gif"
+        ) {
+            echo "Sorry, only JPG, JPEG, PNG & GIF files are allowed.";
+            $uploadOk = 0;
+        }
+
+        // Check if $uploadOk is set to 0 by an error
+        if ($uploadOk == 0) {
+            echo "Sorry, your file was not uploaded.";
+            // if everything is ok, try to upload file
+        } else {
+            if (move_uploaded_file($_FILES["upload"]["tmp_name"][$i], $target_file)) {
+                echo "The file " . htmlspecialchars(basename($_FILES["upload"]["name"][$i])) . " has been uploaded.";
+            } else {
+                echo "Sorry, there was an error uploading your file.";
+            }
+        }
+    }
     // Получаем данные из формы
     $name = mysqli_real_escape_string($mysqli, $_POST['name']);
     $description = mysqli_real_escape_string($mysqli, $_POST['description']);
     $price = mysqli_real_escape_string($mysqli, $_POST['price']);
-    $image_url = mysqli_real_escape_string($mysqli, $_POST['image_url']);
+    $image_url = mysqli_real_escape_string($mysqli, $_POST['upload']);
     $category = mysqli_real_escape_string($mysqli, $_POST['category']);
 
     // Создаем SQL-запрос для добавления товара в базу данных
     $sql = "INSERT INTO `products` (`name`, `description`, `price`, `image_url`, `category`) 
-            VALUES ('$name', '$description', '$price', '$image_url', '$category')";
+            VALUES ('$name', '$description', '$price', '$filenames', '$category')";
 
     // Выполняем запрос
     if (mysqli_query($mysqli, $sql)) {
@@ -23,4 +72,3 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // Закрываем соединение с базой данных
     mysqli_close($mysqli);
 }
-?>
