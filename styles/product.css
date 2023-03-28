@@ -68,7 +68,7 @@
 .prod {
     display: flex;
     justify-content: space-between;
-    width: 1150px;
+    width: 90%;
     margin: 50px auto 0px auto;
 }
 
@@ -107,106 +107,18 @@
     margin-top: 20px;
 }
 
-
-/*@media (max-width: 1150px) {*/
-/*    .prod {*/
-/*        width: 768px;*/
-/*    }*/
-
-/*    .products-wrapper {*/
-/*        width: 768px;*/
-/*    }*/
-/*}*/
-
-/*@media (max-width: 769px) {*/
-/*    .prod {*/
-/*        width: 425px;*/
-/*        flex-direction: column;*/
-/*    }*/
-
-/*    .prod-left {*/
-/*        width: 100%;*/
-/*    }*/
-
-/*    .prod-right {*/
-/*        width: 100%;*/
-/*    }*/
-
-/*    .products-wrapper {*/
-/*        width: 600px;*/
-/*    }*/
-
-/*    .product {*/
-/*        width: 150px;*/
-/*    }*/
-
-/*    .product-img {*/
-/*        height: 156px;*/
-/*    }*/
-/*}*/
-
-/*@media (max-width: 426px) {*/
-/*    .prod {*/
-/*        width: 100%;*/
-/*        padding: 20px;*/
-/*        margin: 10px auto;*/
-/*    }*/
-
-/*    .prod-title {*/
-/*        font-size: 24px;*/
-/*    }*/
-/*    .products-wrapper {*/
-/*        width: 100%;*/
-/*        padding: 20px;*/
-/*    }*/
-
-/*    .product {*/
-/*        width: 50%;*/
-/*    }*/
-
-/*    .product-img {*/
-/*        height: 150px;*/
-/*    }*/
-
-/*    .product-img img {*/
-/*        height: 100%;*/
-/*        width: auto;*/
-/*    }*/
-/*}*/
-
-/*@media (max-width: 319px){*/
-/*    .product {*/
-/*        width: 100%;*/
-/*    }*/
-/*}*/
-
 @media all and (min-width: 1024px) and (max-width: 1280px) {
-    .prod {
-        width: 1024px;
-    }
+
 }
 
-@media all and (min-width: 768px) and (max-width: 1025px) {
-    .prod {
-        width: 768px;
-    }
-
-    .prod-left {
-        width: 100%;
-    }
-
-    .prod-right {
-        width: 100%;
-    }
-
+@media all and (max-width: 1024px) {
     .product{
         width: 30%;
     }
 }
 
-@media all and (min-width: 600px) and (max-width: 768px) {
+@media all and (max-width: 768px) {
     .prod {
-        width: 480px;
         flex-direction: column;
     }
 
@@ -223,8 +135,7 @@
     }
 }
 
-@media all and (min-width: 480px) and (max-width: 600px) {
-
+@media all and (max-width: 600px) {
     .products-wrapper{
         width: 90%;
     }
@@ -233,20 +144,12 @@
         gap: 0px;
     }
 
-    .product{
-        width: 48%;
-    }
-
     .product-title, .product-price{
         font-size: 16px;
     }
 }
 
 @media all and (max-width: 480px) {
-    .product{
-        width: 40%;
-    }
-
     .product-button{
         font-size: 12px;
     }
