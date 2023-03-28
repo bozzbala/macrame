@@ -1,6 +1,6 @@
 <header>
     <div id="sidebar">
-        <div class="sidebar-close" onclick="sidebarToggle()"><i class="fa-solid fa-xmark"></i></div>
+        <div class="sidebar-close" onclick="sidebarToggle()"><i class="fas fa-times"></i></div>
         <div class="sidebar-items">
             <div class="sidebar-item"><a href="/">ГЛАВНАЯ</a></div>
             <div class="sidebar-item"><a href="products.php">ВИДЕОУРОКИ и МАСТЕР-КЛАССЫ</a></div>
@@ -26,7 +26,7 @@
             <div class="menu"><a href="#">ОБО МНЕ</a></div>
             <div class="menu"><a href="#"><img src="./images/cart.png"></a></div>
         </nav>
-        <div class="sidebar-open" onclick="sidebarToggle()">sidebar</div>
+        <div class="sidebar-open" onclick="sidebarToggle()"><i class="fas fa-bars"></i></i></div>
     </div>
 </header>
 <script>

@@ -12,7 +12,11 @@
 </head>
 
 <body>
-    <?php include 'header.php' ?>
+    <?php
+    include 'header.php';
+    include 'BLL/db.php';
+    $result = mysqli_query($mysqli, "SELECT * FROM products");
+    ?>
     <main>
         <section class="intro">
             <div class="intro-header">БОЛЬШОЙ АССОРТИМЕНТ ТОВАРОВ</div>
@@ -25,30 +29,14 @@
         <section class="products-wrapper">
             <div class="product-category">ШНУРЫ</div>
             <div class="products">
-                <div class="product">
-                    <div class="product-img"><img src="https://fndeco.com/8028-large_default/retwisst-xxlace-yarn-brown.jpg"></div>
-                    <div class="product-title">Название</div>
-                    <div class="product-price">19.99$</div>
+                <?php while($row = mysqli_fetch_assoc($result)) { ?>
+                <a class="product" href="/product.php?p=<?php echo $row['id']; ?>">
+                    <div class="product-img"><img src="<?php echo "./db/". strtok($row['image_url'], " "); ?>"></div>
+                    <div class="product-title"><?php echo $row['name'] ?></div>
+                    <div class="product-price"><?php echo $row['price'] ?></div>
                     <div class="product-button">В КОРЗИНУ</div>
-                </div>
-                <div class="product">
-                    <div class="product-img"><img src="images/product.png"></div>
-                    <div class="product-title">Название</div>
-                    <div class="product-price">19.99$</div>
-                    <div class="product-button">В КОРЗИНУ</div>
-                </div>
-                <div class="product">
-                    <div class="product-img"><img src="images/product.png"></div>
-                    <div class="product-title">Название</div>
-                    <div class="product-price">19.99$</div>
-                    <div class="product-button">В КОРЗИНУ</div>
-                </div>
-                <div class="product">
-                    <div class="product-img"><img src="images/product.png"></div>
-                    <div class="product-title">Название</div>
-                    <div class="product-price">19.99$</div>
-                    <div class="product-button">В КОРЗИНУ</div>
-                </div>
+                </a>
+                <?php } ?>
             </div>
         </section>
     </main>
