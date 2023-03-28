@@ -41,6 +41,9 @@
                 <?php } ?>
             </div>
         </section>
+        <?
+        mysqli_close($mysqli);
+        ?>
     </main>
     <?php include 'footer.php' ?>
 </body>

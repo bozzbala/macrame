@@ -8,7 +8,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $filenames = "";
     for ($i = 0; $i < $total_count; $i++) {
         $target_dir = "../db/";
-        $target_file = $target_dir . basename($_FILES["upload"]["name"][$i]);
+        $input_str = trim(basename($_FILES["upload"]["name"][$i]));
+        $str = preg_replace("/\s+/", "", $input_str);
+        $target_file = $target_dir . $str;
         $uploadOk = 1;
         $imageFileType = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
 
@@ -41,7 +43,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         } else {
             if (move_uploaded_file($_FILES["upload"]["tmp_name"][$i], $target_file)) {
                 echo "The file " . htmlspecialchars(basename($_FILES["upload"]["name"][$i])) . " has been uploaded.";
-                $filenames .= basename($_FILES["upload"]["name"][$i]) . " ";
+                $filenames .= preg_replace("/\s+/", "", $str) . " ";
             } else {
                 echo "Sorry, there was an error uploading your file.";
             }
@@ -51,7 +53,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $name = mysqli_real_escape_string($mysqli, $_POST['name']);
     $description = mysqli_real_escape_string($mysqli, $_POST['description']);
     $price = mysqli_real_escape_string($mysqli, $_POST['price']);
-    $image_url = mysqli_real_escape_string($mysqli, $_POST['upload']);
     $category = mysqli_real_escape_string($mysqli, $_POST['category']);
 
     // Создаем SQL-запрос для добавления товара в базу данных

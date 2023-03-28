@@ -55,11 +55,11 @@ if (!isset($_COOKIE['macrame'])) {
                         <input class="form-control" type="file" id="image_url" name="upload[]" multiple="multiple">
                     </div>
                     <br>
+                    <div>Выберите категорию</div>
                     <select for="category" class="form-select" aria-label="Default select example" name="category">
-                        <option selected>Выберите категорию</option>
-                        <option value="1">Шнуры</option>
-                        <option value="2">Наборы</option>
-                        <option value="3">Мастер-классы</option>
+                        <option value="Шнуры" selected>Шнуры</option>
+                        <option value="Наборы">Наборы</option>
+                        <option value="Мастер-классы">Мастер-классы</option>
                     </select>
                     <br>
                     <button type="submit" class="btn btn-primary">Отправить</button>

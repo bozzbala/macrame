@@ -11,26 +11,33 @@
 </head>
 
 <body>
-    <?php include 'header.php' ?>
+    <?php
+    include 'header.php';
+    include 'BLL/db.php';
+
+    $id = $_GET['p'];
+    $result = mysqli_query($mysqli, "SELECT * FROM products WHERE `id`='$id'");
+    $row = mysqli_fetch_assoc($result);
+    $category = $row['category'];
+    $desc = $row['description'];
+    $title = $row['name'];
+    $price = $row['price'];
+    $available = $row['available'];
+    $image = $row['image_url'];
+
+    ?>
     <main>
         <div class="prod">
             <div class="prod-left">
-                <img src="./images/product.png">
+                <img src="<?php echo "./db/" . $image; ?>">
             </div>
             <div class="prod-right">
-                <div class="prod-category">Шнуры</div>
-                <div class="prod-title">Шнур для шитья 18х20</div>
-                <div class="prod-price">19000</div>
+                <div class="prod-category"><?php echo $category; ?></div>
+                <div class="prod-title"><?php echo $title; ?></div>
+                <div class="prod-price"><?php echo $price; ?></div>
                 <h2>ОПИСАНИЕ</h2>
                 <div class="prod-desc">
-                    Inspired by the natural erosion process of Nature, this powerful pyramid is created in her tiniest details to imitate the crude state of Time on material things!
-                    <br>
-                    Unpolished and raw she is!
-                    <br>
-                    The visual effect of her apex, the cubic copper that partially shows, the bubbles, the bare spots, and the bumps simulate perfectly the Erosion!
-                    <br>
-                    <br>
-                    Our pyramid is majestically created with a powerful combination of rough quartz, rough black tourmaline, and fluorite.
+                    <?php echo $desc; ?>
                 </div>
             </div>
         </div>
