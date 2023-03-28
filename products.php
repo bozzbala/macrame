@@ -30,12 +30,14 @@
             <div class="product-category">ШНУРЫ</div>
             <div class="products">
                 <?php while($row = mysqli_fetch_assoc($result)) { ?>
-                <a class="product" href="/product.php?p=<?php echo $row['id']; ?>">
+                <div class="product">
+                    <a href="/product.php?p=<?php echo $row['id']; ?>">
                     <div class="product-img"><img src="<?php echo "./db/". strtok($row['image_url'], " "); ?>"></div>
                     <div class="product-title"><?php echo $row['name'] ?></div>
                     <div class="product-price"><?php echo $row['price'] ?></div>
+                    </a>
                     <div class="product-button">В КОРЗИНУ</div>
-                </a>
+                </div>
                 <?php } ?>
             </div>
         </section>

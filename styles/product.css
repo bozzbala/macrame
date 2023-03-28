@@ -24,11 +24,14 @@
 
 .product {
     width: 23%;
-    display: block;
-    text-decoration: none;
     margin-top: 20px;
+}
+
+.product a{
+    text-decoration: none;
     color: black;
 }
+
 
 .product-img {
     aspect-ratio: 133/166;
