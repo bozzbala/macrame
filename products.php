@@ -16,6 +16,9 @@
     include 'header.php';
     include 'BLL/db.php';
     $result = mysqli_query($mysqli, "SELECT * FROM products");
+    $shnur = mysqli_query($mysqli, "SELECT * FROM products WHERE `category`='Шнуры'");
+    $nabor = mysqli_query($mysqli, "SELECT * FROM products WHERE `category`='Наборы'");
+    $master = mysqli_query($mysqli, "SELECT * FROM products WHERE `category`='Мастер-классы'");
     ?>
     <main>
         <section class="intro">
@@ -27,9 +30,9 @@
         </section>
 
         <section class="products-wrapper">
-            <div class="product-category">ШНУРЫ</div>
+            <div class="product-category" id="yarns">ШНУРЫ</div>
             <div class="products">
-                <?php while($row = mysqli_fetch_assoc($result)) { ?>
+                <?php while($row = mysqli_fetch_assoc($shnur)) { ?>
                 <div class="product">
                     <a href="/product.php?p=<?php echo $row['id']; ?>">
                     <div class="product-img"><img src="<?php echo "./db/". strtok($row['image_url'], " "); ?>"></div>
@@ -38,6 +41,32 @@
                     </a>
                     <div class="product-button">В КОРЗИНУ</div>
                 </div>
+                <?php } ?>
+            </div>
+            <div class="product-category" id="packs">Наборы</div>
+            <div class="products">
+                <?php while($row = mysqli_fetch_assoc($nabor)) { ?>
+                    <div class="product">
+                        <a href="/product.php?p=<?php echo $row['id']; ?>">
+                            <div class="product-img"><img src="<?php echo "./db/". strtok($row['image_url'], " "); ?>"></div>
+                            <div class="product-title"><?php echo $row['name'] ?></div>
+                            <div class="product-price"><?php echo $row['price'] ?></div>
+                        </a>
+                        <div class="product-button">В КОРЗИНУ</div>
+                    </div>
+                <?php } ?>
+            </div>
+            <div class="product-category" id="master">Мастер-классы</div>
+            <div class="products">
+                <?php while($row = mysqli_fetch_assoc($master)) { ?>
+                    <div class="product">
+                        <a href="/product.php?p=<?php echo $row['id']; ?>">
+                            <div class="product-img"><img src="<?php echo "./db/". strtok($row['image_url'], " "); ?>"></div>
+                            <div class="product-title"><?php echo $row['name'] ?></div>
+                            <div class="product-price"><?php echo $row['price'] ?></div>
+                        </a>
+                        <div class="product-button">В КОРЗИНУ</div>
+                    </div>
                 <?php } ?>
             </div>
         </section>

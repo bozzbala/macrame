@@ -3,9 +3,9 @@
         <div class="sidebar-close" onclick="sidebarToggle()"><i class="fas fa-times"></i></div>
         <div class="sidebar-items">
             <div class="sidebar-item"><a href="/">ГЛАВНАЯ</a></div>
-            <div class="sidebar-item"><a href="products.php">ВИДЕОУРОКИ и МАСТЕР-КЛАССЫ</a></div>
+            <div class="sidebar-item"><a href="products.php#master">ВИДЕОУРОКИ и МАСТЕР-КЛАССЫ</a></div>
             <div class="sidebar-item"><a href="store.php">МАГАЗИН</a></div>
-            <div class="sidebar-item"><a href="products.php">НЕОБХОДИМЫЕ МАТЕРИАЛЫ</a></div>
+            <div class="sidebar-item"><a href="products.php#yarns">НЕОБХОДИМЫЕ МАТЕРИАЛЫ</a></div>
             <div class="sidebar-item"><a href="products.php">ОБО МНЕ</a></div>
         </div>
         <div class="sidebar-social-links">  
@@ -20,9 +20,9 @@
             <div>NAZVANIE</div>
         </div>
         <nav>
-            <div class="menu"><a href="products.php">ВИДЕОУРОКИ</a></div>
+            <div class="menu"><a href="products.php#master">ВИДЕОУРОКИ</a></div>
             <div class="menu"><a href="store.php">МАГАЗИН</a></div>
-            <div class="menu"><a href="products.php">НЕОБХОДИМЫЕ МАТЕРИАЛЫ</a></div>
+            <div class="menu"><a href="products.php#yarns">НЕОБХОДИМЫЕ МАТЕРИАЛЫ</a></div>
             <div class="menu"><a href="#">ОБО МНЕ</a></div>
             <div class="menu"><a href="#"><img src="./images/cart.png"></a></div>
         </nav>
