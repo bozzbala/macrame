@@ -22,13 +22,9 @@ if (!isset($_POST['submit'])) {
     // Проверяем, найден ли пользователь с такими данными
     if (mysqli_num_rows($result) == 1) {
         // Авторизуем пользователя
-        session_start();
-        $_SESSION['username'] = $username;
-        header("Location: index.php");
+        setcookie($username, $password, time() + 6400, "/");
         header("Location: /admin.php");
     } else {
-        // Выводим сообщение об ошибке
-        echo "Invalid username or password.";
         header("Location: /BLL/loginPage.php");
     }
 }
