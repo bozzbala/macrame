@@ -54,7 +54,7 @@ $image = str_split_by_space($row['image_url']);
             <div class="prod-price"><?php echo $price; ?></div>
             <h2>ОПИСАНИЕ</h2>
             <div class="prod-desc">
-                <?php echo $desc; ?>
+                <?php echo nl2br($desc); ?>
             </div>
         </div>
     </div>
