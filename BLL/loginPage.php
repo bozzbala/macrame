@@ -8,16 +8,13 @@
     <link href="../styles/login.css" rel="stylesheet">
 </head>
 <body>
-    <form action="login.php" method="post">
-        <div class="login">
-            <div class="login__input">
-                <input type="text" name="login" placeholder="Имя пользователя">
-            </div>
-            <div class="login__input">
-                <input type="password" name="pass" placeholder="Пароль">
-            </div>
-            <input type="submit" value="Войти" class="login__submit">
-        </div>
+   <div class="login">
+   <h1>Вход</h1>
+    <form action="login.php" method="POST">
+      <input type="text" name="login" placeholder="Логин" required="required" />
+        <input type="password" name="pass" placeholder="Пароль" required="required" />
+        <button type="submit" class="btn btn-primary btn-block btn-large">Войти</button>
     </form>
+</div>
 </body>
 </html>
