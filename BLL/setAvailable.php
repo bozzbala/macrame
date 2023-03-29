@@ -1,6 +1,6 @@
 <?php
 // Подключаем файл с настройками базы данных
-require_once('BLL/db.php');
+require_once('db.php');
 
 // Получаем параметры запроса
 $id = $_POST['id'];

@@ -68,6 +68,9 @@ $image = str_split_by_space($row['image_url']);
             }?>
         </div>
     </div>
+    <?
+    mysqli_close($mysqli);
+    ?>
 </main>
 <?php include 'footer.php' ?>
 </body>
