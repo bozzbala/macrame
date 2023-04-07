@@ -1,5 +1,6 @@
 <?php
 include_once "BLL/db.php";
+session_start();
 $cart_items = !empty($_SESSION['cart']) ? $_SESSION['cart'] : array();
 $total_price = 0;
 
@@ -45,7 +46,7 @@ if (!empty($cart_items)) {
             <tbody>
                 <?php foreach ($products as $product) { ?>
                     <tr>
-                        <td><img src="<?php echo $product['image_url']; ?>" width="50"></td>
+                        <td><img src="<?php echo "./db/" . strtok($product['image_url'], " "); ?>" width="50"></td>
                         <td><?php echo $product['name']; ?></td>
                         <td><?php echo $product['price']; ?></td>
                         <td><?php echo $cart_items[$product['id']]['quantity']; ?></td>

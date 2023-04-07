@@ -24,7 +24,7 @@
             <div class="menu"><a href="store.php">МАГАЗИН</a></div>
             <div class="menu"><a href="products.php#yarns">НЕОБХОДИМЫЕ МАТЕРИАЛЫ</a></div>
             <div class="menu"><a href="#">ОБО МНЕ</a></div>
-            <div class="menu"><a href="#"><img src="./images/cart.png"></a></div>
+            <div class="menu"><a href="cart.php"><img src="./images/cart.png"></a></div>
         </nav>
         <div class="sidebar-open" onclick="sidebarToggle()"><i class="fas fa-bars"></i></i></div>
     </div>

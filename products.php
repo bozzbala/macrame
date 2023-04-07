@@ -82,7 +82,7 @@
                     <input type="hidden" name="product_id" value="<?php echo $row['id']; ?>">
                     <input type="hidden" name="product_name" value="<?php echo $row['name']; ?>">
                     <input type="hidden" name="product_price" value="<?php echo $row['price']; ?>">
-                    <input type="hidden" name="product_image" value="<?php echo $row['image_url']; ?>">
+                    <input type="hidden" name="product_image" value="<?php echo "./db/". strtok($row['image_url'], " "); ?>">
                     <button type="submit" class="product-button">В КОРЗИНУ</button>
                 </form>
             </div>
