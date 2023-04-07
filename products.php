@@ -13,6 +13,7 @@
 
 <body>
     <?php
+    session_start();
     include 'header.php';
     include 'BLL/db.php';
     $result = mysqli_query($mysqli, "SELECT * FROM products");
@@ -30,48 +31,69 @@
         </section>
 
         <section class="products-wrapper">
-            <div class="product-category" id="yarns">ШНУРЫ</div>
-            <div class="products">
-                <?php while($row = mysqli_fetch_assoc($shnur)) { ?>
-                <div class="product">
-                    <a href="/product.php?p=<?php echo $row['id']; ?>">
+    <div class="product-category" id="yarns">ШНУРЫ</div>
+    <div class="products">
+        <?php while($row = mysqli_fetch_assoc($shnur)) { ?>
+            <div class="product">
+                <a href="/product.php?p=<?php echo $row['id']; ?>">
                     <div class="product-img"><img src="<?php echo "./db/". strtok($row['image_url'], " "); ?>"></div>
                     <div class="product-title"><?php echo $row['name'] ?></div>
                     <div class="product-price"><?php echo $row['price'] ?></div>
-                    </a>
-                    <div class="product-button">В КОРЗИНУ</div>
-                </div>
-                <?php } ?>
+                </a>
+                <form method="POST" action="addtocart.php">
+                    <input type="hidden" name="product_id" value="<?php echo $row['id']; ?>">
+                    <input type="hidden" name="product_name" value="<?php echo $row['name']; ?>">
+                    <input type="hidden" name="product_price" value="<?php echo $row['price']; ?>">
+                    <input type="hidden" name="product_image" value="<?php echo $row['image_url']; ?>">
+                    <button type="submit" class="product-button">В КОРЗИНУ</button>
+                </form>
             </div>
-            <div class="product-category" id="packs">Наборы</div>
-            <div class="products">
-                <?php while($row = mysqli_fetch_assoc($nabor)) { ?>
-                    <div class="product">
-                        <a href="/product.php?p=<?php echo $row['id']; ?>">
-                            <div class="product-img"><img src="<?php echo "./db/". strtok($row['image_url'], " "); ?>"></div>
-                            <div class="product-title"><?php echo $row['name'] ?></div>
-                            <div class="product-price"><?php echo $row['price'] ?></div>
-                        </a>
-                        <div class="product-button">В КОРЗИНУ</div>
-                    </div>
-                <?php } ?>
+        <?php } ?>
+    </div>
+    <div class="product-category" id="packs">Наборы</div>
+    <div class="products">
+        <?php while($row = mysqli_fetch_assoc($nabor)) { ?>
+            <div class="product">
+                <a href="/product.php?p=<?php echo $row['id']; ?>">
+                    <div class="product-img"><img src="<?php echo "./db/". strtok($row['image_url'], " "); ?>"></div>
+                    <div class="product-title"><?php echo $row['name'] ?></div>
+                    <div class="product-price"><?php echo $row['price'] ?></div>
+                </a>
+                <form method="POST" action="addtocart.php">
+                    <input type="hidden" name="product_id" value="<?php echo $row['id']; ?>">
+                    <input type="hidden" name="product_name" value="<?php echo $row['name']; ?>">
+                    <input type="hidden" name="product_price" value="<?php echo $row['price']; ?>">
+                    <input type="hidden" name="product_image" value="<?php echo $row['image_url']; ?>">
+                    <button type="submit" class="product-button">В КОРЗИНУ</button>
+                </form>
             </div>
-            <div class="product-category" id="master">Мастер-классы</div>
-            <div class="products">
-                <?php while($row = mysqli_fetch_assoc($master)) { ?>
-                    <div class="product">
-                        <a href="/product.php?p=<?php echo $row['id']; ?>">
-                            <div class="product-img"><img src="<?php echo "./db/". strtok($row['image_url'], " "); ?>"></div>
-                            <div class="product-title"><?php echo $row['name'] ?></div>
-                            <div class="product-price"><?php echo $row['price'] ?></div>
-                        </a>
-                        <div class="product-button">В КОРЗИНУ</div>
-                    </div>
-                <?php } ?>
+        <?php } ?>
+    </div>
+    <div class="product-category" id="master">Мастер-классы</div>
+    <div class="products">
+        <?php while($row = mysqli_fetch_assoc($master)) { ?>
+            <div class="product">
+                <a href="/product.php?p=<?php echo $row['id']; ?>">
+                    <div class="product-img"><img src="<?php echo "./db/". strtok($row['image_url'], " "); ?>"></div>
+                    <div class="product-title"><?php echo $row['name'] ?></div>
+                    <div class="product-price"><?php echo $row['price'] ?></div>
             </div>
-        </section>
+                    <form method="POST" action="addtocart.php">
+                    <input type="hidden" name="product_id" value="<?php echo $row['id']; ?>">
+                    <input type="hidden" name="product_name" value="<?php echo $row['name']; ?>">
+                    <input type="hidden" name="product_price" value="<?php echo $row['price']; ?>">
+                    <input type="hidden" name="product_image" value="<?php echo $row['image_url']; ?>">
+                    <button type="submit" class="product-button">В КОРЗИНУ</button>
+                </form>
+            </div>
+        <?php } ?>
+    </div>
+
+</section>
+
         <?
         mysqli_close($mysqli);
+        
         ?>
     </main>
     <?php include 'footer.php' ?>
