@@ -27,6 +27,7 @@ if (!isset($_COOKIE['macrame'])) {
             margin: 20px 0px;
         }
     </style>
+    
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
 </head>
 
@@ -56,11 +57,11 @@ if (!isset($_COOKIE['macrame'])) {
                     </div>
                     <br>
                     <div>Выберите категорию</div>
-                    <select for="category" class="form-select" aria-label="Default select example" name="category">
-                        <option value="Шнуры" selected>Шнуры</option>
-                        <option value="Наборы">Наборы</option>
-                        <option value="Мастер-классы">Мастер-классы</option>
-                    </select>
+                        <select for="category" class="form-select" aria-label="Default select example" name="category">
+                            <option value="Шнуры" selected>Шнуры</option>
+                            <option value="Наборы">Наборы</option>
+                            <option value="Мастер-классы">Мастер-классы</option>
+                        </select>
                     <br>
                     <button type="submit" class="btn btn-primary">Отправить</button>
                 </form>
@@ -81,32 +82,34 @@ if (!isset($_COOKIE['macrame'])) {
                         </tr>
                     </thead>
                     <tbody>
-                        <?php
-                        while ($row = mysqli_fetch_assoc($result)) {
-                        ?>
-                            <tr>
-                                <th scope="row"><?php echo $row['id']; ?></th>
-                                <td><?php echo $row['name']; ?></td>
-                                <td><?php echo $row['price']; ?></td>
-                                <td><?php echo ($row['available'] ? 'Да' : 'Нет'); ?></td>
-                                <td>
-                                    <form method="POST" action="/BLL/setAvailable.php">
-                                        <input type="hidden" name="id" value="<?php echo $row['id']; ?>">
-                                        <?php
-                                        if ($row['available']) {
-                                            echo '<button type="submit" name="available_' . $row['id'] . '" value="0" class="btn btn-outline-primary">-</button>';
-                                        } else {
-                                            echo '<button type="submit" name="available_' . $row['id'] . '" value="1" class="btn btn-outline-primary">+</button>';
-                                        }
-                                        ?>
-                                        <button type="button" class="btn btn-outline-success">Изменить</button>
-                                        <button type="button" class="btn btn-outline-danger">Удалить</button>
-                                    </form>
-                                </td>
-                            </tr>
-                        <?php
-                        }
-                        ?>
+                    <?php
+while ($row = mysqli_fetch_assoc($result)) {
+?>
+    <tr>
+        <th scope="row"><?php echo $row['id']; ?></th>
+        <td><?php echo $row['name']; ?></td>
+        <td><?php echo $row['price']; ?></td>
+        <td><?php echo ($row['available'] ? 'Да' : 'Нет'); ?></td>
+        <td>
+            <form method="POST" action="/BLL/setAvailable.php">
+                <input type="hidden" name="id" value="<?php echo $row['id']; ?>">
+                <?php
+                if ($row['available']) {
+                    echo '<button type="submit" name="available_' . $row['id'] . '" value="0" class="btn btn-outline-primary">-</button>';
+                } else {
+                    echo '<button type="submit" name="available_' . $row['id'] . '" value="1" class="btn btn-outline-primary">+</button>';
+                }
+                ?>
+                <a href="/edit.php?id=<?php echo $row['id']; ?>" class="btn btn-outline-success">Изменить</a>
+                <a href="/BLL/deleteProduct.php?id=<?php echo $row['id']; ?>" class="btn btn-outline-danger">Удалить</a>
+        
+             </form>
+        </td>
+    </tr>
+<?php
+}
+?>
+
                     </tbody>
                 </table>
                 <?
