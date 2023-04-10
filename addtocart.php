@@ -29,7 +29,5 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 }
 
-// // перенаправляем на страницу товара
-// header('Location: ' . $_SERVER['HTTP_REFERER']);
-// exit();
+header('Location: cart.php');
 ?>

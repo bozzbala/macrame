@@ -53,7 +53,7 @@ if (!isset($_COOKIE['macrame'])) {
                     <br>
                     <div class="mb-3">
                         <label for="image_url" class="form-label">Фотографии</label>
-                        <input class="form-control" type="file" id="image_url" name="upload[]" multiple="multiple">
+                        <input class="form-control" type="file" id="image_url" name="upload[]" multiple="multiple" required>
                     </div>
                     <br>
                     <div>Выберите категорию</div>

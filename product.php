@@ -1,33 +1,15 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link href="styles/product.css" rel="stylesheet" type="text/css">
-    <link href="style.css" rel="stylesheet" type="text/css">
-    <link rel="stylesheet" type="text/css"
-          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
-</head>
-
-<body>
 <?php
-include 'header.php';
-include 'BLL/db.php';
 
+include 'BLL/db.php';
 function str_split_by_space($str)
 {
     $result = array();
     $new_str = "";
-    for ($i = 0; $i < strlen($str); $i++) {
-        if ($str[$i + 1] == ' ') {
-            $new_str .= $str[$i];
+    for ($i = 0; $i < strlen($str)-1; $i++) {
+        $new_str .= $str[$i];
+        if($str[$i + 1] == ' ') {
             array_push($result, trim($new_str));
             $new_str = "";
-        } else {
-            $new_str .= $str[$i];
         }
     }
     return $result;
@@ -42,6 +24,25 @@ $title = $row['name'];
 $price = $row['price'];
 $available = $row['available'];
 $image = str_split_by_space($row['image_url']);
+?>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><?php echo $title ?></title>
+    <link href="styles/product.css" rel="stylesheet" type="text/css">
+    <link href="style.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" type="text/css"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+</head>
+
+<body>
+<?php
+include 'header.php';
+
 ?>
 <main>
     <div class="prod">

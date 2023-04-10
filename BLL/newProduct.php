@@ -56,8 +56,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $category = mysqli_real_escape_string($mysqli, $_POST['category']);
 
     // Создаем SQL-запрос для добавления товара в базу данных
-    $sql = "INSERT INTO `products` (`name`, `description`, `price`, `image_url`, `category`) 
-            VALUES ('$name', '$description', '$price', '$filenames', '$category')";
+    $sql = "INSERT INTO `products` (`name`, `description`, `price`, `image_url`, `category`, `available`) 
+            VALUES ('$name', '$description', '$price', '$filenames', '$category', 1)";
 
     // Выполняем запрос
     if (mysqli_query($mysqli, $sql)) {

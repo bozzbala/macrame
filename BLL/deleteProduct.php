@@ -1,4 +1,8 @@
 <?php
+if (!isset($_COOKIE['macrame'])) {
+    header("Location: /BLL/loginPage.php");
+    exit;
+}
 include_once "db.php";
  // check if the form has been submitted
  if (isset($_GET['id'])) {

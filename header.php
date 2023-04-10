@@ -29,6 +29,7 @@
         <div class="sidebar-open" onclick="sidebarToggle()"><i class="fas fa-bars"></i></i></div>
     </div>
 </header>
+
 <script>
     let isOpen = false;
     const sidebarToggle = () => {

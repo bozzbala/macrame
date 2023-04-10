@@ -58,10 +58,20 @@
     font-size: 14px;
     width: max-content;
     margin: 6px auto;
+    border: none;
     border-radius: 5px;
     color: white;
+    transition: 0.3s;
 }
 
+.product-button:hover{
+    background-color: #ce9c45;
+}
+
+.product-form{
+    display: flex;
+    justify-content: center;
+}
 
 
 
