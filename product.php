@@ -29,9 +29,6 @@ $image = str_split_by_space($row['image_url']);
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><?php echo $title ?></title>
     <link href="styles/product.css" rel="stylesheet" type="text/css">
     <link href="style.css" rel="stylesheet" type="text/css">
@@ -41,7 +38,7 @@ $image = str_split_by_space($row['image_url']);
 
 <body>
 <?php
-include 'header.php';
+include './inc/header.php';
 
 ?>
 <main>
@@ -73,7 +70,7 @@ include 'header.php';
     mysqli_close($mysqli);
     ?>
 </main>
-<?php include 'footer.php' ?>
+<?php include './inc/footer.php' ?>
 </body>
 
 </html>

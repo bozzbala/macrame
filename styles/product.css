@@ -15,6 +15,7 @@
     justify-content: space-between;
     flex-wrap: wrap;
     gap: 20px;
+    padding: 100px 0;
 }
 
 .products::after{

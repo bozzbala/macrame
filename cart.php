@@ -23,8 +23,7 @@ if (!empty($cart_items)) {
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <?php include './inc/head.php' ?>
     <title>Корзина</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
     <script src="https://kit.fontawesome.com/012beec9f6.js" crossorigin="anonymous"></script>
@@ -67,7 +66,7 @@ if (!empty($cart_items)) {
                                             <p class="mb-0" style="font-weight: 500;"><?php echo $product['name']; ?></p>
                                         </td>
                                         <td class="align-middle border-bottom-0">
-                                            <form method="post" action="BLL/update_cart.php">
+                                            <form method="post" action="BLL/update_cart.php" id="updateForm">
                                                 <div class="d-flex flex-row">
                                                     <input type="hidden" name="product_id" value="<?php echo $product['id']; ?>">
                                                     <button type="submit"  class="btn btn-link px-2" name="action" value="decrement">
@@ -124,6 +123,22 @@ if (!empty($cart_items)) {
         </section>
 <?php } ?>
         </div>
+        <script>
+            // Получаем позицию прокрутки при загрузке страницы
+            var scrollPosition = 0;
+            window.onload = function() {
+                scrollPosition = sessionStorage.getItem('scrollPosition');
+                if (scrollPosition !== null) {
+                    window.scrollTo(0, scrollPosition);
+                    sessionStorage.removeItem('scrollPosition');
+                }
+            };
+
+            // Сохраняем позицию прокрутки перед перенаправлением
+            window.onbeforeunload = function() {
+                sessionStorage.setItem('scrollPosition', window.pageYOffset);
+            };
+        </script>
 </body>
 
 </html>
