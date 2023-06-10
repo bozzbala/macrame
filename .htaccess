@@ -1,0 +1,75 @@
+Options -Indexes
+DirectoryIndex index.php
+AddDefaultCharset UTF-8
+
+#ErrorDocument 403 /suspend.php
+ErrorDocument 403 /error.php?code=403
+#ErrorDocument 404 /error.php?code=404
+ErrorDocument 404 /error-404/
+
+#<FilesMatch "\.(tpl)$">
+#Order allow,deny
+#Deny from all
+#</FilesMatch>
+
+<FilesMatch "\.(tpl)$">
+    Require all denied
+</FilesMatch>
+
+RewriteEngine on
+RewriteBase   /
+
+#RewriteCond %{HTTPS} !=on
+#RewriteRule ^(.*)$ https://%{HTTP_HOST}/$1 [R=301,L]
+
+# Not https redirect
+#RewriteCond %{HTTPS} !=on
+#RewriteRule ^.*$ https://www.%{SERVER_NAME}%{REQUEST_URI} [R,L]
+
+# Primary domain redirect
+#RewriteCond %{HTTP_HOST} !^host.name
+#RewriteRule ^(.*)$ http://host.name/$1 [R=301,L]
+
+# Not www redirect
+#RewriteCond %{HTTP_HOST} !^www\.
+#RewriteRule ^(.*)$ http://www.%{HTTP_HOST}/$1 [R=301,L]
+
+# With www redirect
+RewriteCond %{HTTP_HOST} ^www\.(.+)$ [NC]
+RewriteRule ^ http://%1%{REQUEST_URI} [L,R=301]
+
+# index.php redirect
+RewriteCond %{THE_REQUEST} ^.*/index\.php
+RewriteRule ^(.*)index.php$ /$1 [R=301,L]
+
+# index.html redirect
+RewriteCond %{THE_REQUEST} ^.*/index\.html
+RewriteRule ^(.*)index.html /$1 [R=301,L]
+
+# Home page
+RewriteRule ^home/$ /?%{QUERY_STRING} [R=301,L]
+
+# AJAX QUERY
+RewriteRule ^ajax/([-0-9a-z_]+)/([-0-9a-z_]+).php$ /includes/ajax/ajax.connector.php?controller=$1&action=$2&%{QUERY_STRING} [END]
+
+# IMAGE PROCESSING
+#RewriteRule ^imagine/([-0-9a-z_]+)/([-0-9a-zA-Z_\.\/]+) /includes/imagine/imagine.php?path=/$1/$2 [END]
+
+# Remove duplicate / in url
+RewriteCond %{THE_REQUEST} \s/+(.*?)/{2,}([^\s]*)
+RewriteRule ^ %1/%2 [R=301,L,NE]
+
+# Pagination
+#RewriteRule ^([-0-9a-z_//]+)/page/(0|1){1}/?$ /$1%{QUERY_STRING} [R=301,L]
+#RewriteRule ^([-0-9a-z_//]+)/page/([0-9]+)/?$ /?page=$1&p=$2&%{QUERY_STRING} [L]
+
+#CONTENT
+#RewriteRule ^([-0-9a-z_//]*)/([0-9]+)/$ index.php?page=$1&row=$2&%{QUERY_STRING} [L]
+#RewriteRule ^([-0-9a-z_//]*)/([-0-9a-z_]+)\.html$ index.php?page=$1&row=$2&%{QUERY_STRING} [L]
+
+#PAGE AND ALL OTHER CASES
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.*)$ /index.php?_q=$1&%{QUERY_STRING} [L]
+
+#RewriteRule ^([-0-9a-z_//]+)/?$ /?page=$1&%{QUERY_STRING} [L]

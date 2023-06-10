@@ -1,5 +1,5 @@
 <?php
-$mysqli = mysqli_connect("localhost", "root", "", "macrame");
+$mysqli = mysqli_connect("localhost", "root", "", "assellux_main");
 $conn = $mysqli;
 // Проверка соединения
 if (mysqli_connect_errno()) {
