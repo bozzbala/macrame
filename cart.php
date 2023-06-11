@@ -32,7 +32,7 @@ if (!empty($cart_items)) {
 <body>
 
         <div class="container mt-5">
-            <h1><a href="/products.php" style="text-decoration: none">Назад</a></h1>
+            <h1><a href="/products" style="text-decoration: none">Назад</a></h1>
             <h1>Корзина</h1>
         <?php if (empty($cart_items)) { ?>
             <p>Ваша корзина пуста.</p>

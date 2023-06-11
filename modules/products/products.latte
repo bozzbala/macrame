@@ -5,7 +5,7 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
 <section>
     <div class="products-wrapper">
-        <div class="product-category" id="yarns">ШНУРЫ</div>
+        <div class="product-category" id="yarns" n:if="!empty($shnur)">ШНУРЫ</div>
         <div class="products">
             <div class="product" n:foreach="$shnur as $row" n:if="$row['available'] == 1">
                 <a href="/product.php?p={$row['id']}">
@@ -23,7 +23,7 @@
                 </form>
             </div>
         </div>
-        <div class="product-category" id="packs">Наборы</div>
+        <div class="product-category" id="packs" n:if="!empty($nabor)">Наборы</div>
         <div class="products">
             <div class="product" n:foreach="$nabor as $row" n:if="$row['available'] == 1">
                 <a href="/product.php?p={$row['id']}">

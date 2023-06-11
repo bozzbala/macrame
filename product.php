@@ -1,29 +1,6 @@
 <?php
 
 include 'BLL/db.php';
-function str_split_by_space($str)
-{
-    $result = array();
-    $new_str = "";
-    for ($i = 0; $i < strlen($str)-1; $i++) {
-        $new_str .= $str[$i];
-        if($str[$i + 1] == ' ') {
-            array_push($result, trim($new_str));
-            $new_str = "";
-        }
-    }
-    return $result;
-}
-
-$id = $_GET['p'];
-$result = mysqli_query($mysqli, "SELECT * FROM products WHERE `id`='$id'");
-$row = mysqli_fetch_assoc($result);
-$category = $row['category'];
-$desc = $row['description'];
-$title = $row['name'];
-$price = $row['price'];
-$available = $row['available'];
-$image = str_split_by_space($row['image_url']);
 ?>
 <!DOCTYPE html>
 <html lang="en">

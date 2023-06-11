@@ -1,0 +1,25 @@
+
+<title>Магазин</title>
+<link href="style.css" rel="stylesheet" type="text/css">
+<link href="styles/product.css" rel="stylesheet" type="text/css">
+<link rel="stylesheet" type="text/css"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+<div class="prod">
+    <div class="prod-left">
+        <img src="./db/{$image}">
+    </div>
+    <div class="prod-right">
+        <div class="prod-category">{$category}</div>
+        <div class="prod-title">{$title}</div>
+        <div class="prod-price">{$price}</div>
+        <h2>ОПИСАНИЕ</h2>
+        <div class="prod-desc">
+            {$desc|breaklines}
+        </div>
+    </div>
+</div>
+<div class="prod" n:if="count($images) > 1">
+    <div class="prod-left">
+        <img n:foreach="$images as $item" src="./db/{$item}">
+    </div>
+</div>
