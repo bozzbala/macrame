@@ -4,7 +4,7 @@
         <?php include './inc/head.php' ?>
         <title>Магазин</title>
         <link href="styles/store.css" rel="stylesheet" type="text/css">
-        <link href="style.css" rel="stylesheet" type="text/css">
+        <link href="styles/styles.css" rel="stylesheet" type="text/css">
         <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
     </head>
     <body>

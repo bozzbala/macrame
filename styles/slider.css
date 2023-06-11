@@ -91,6 +91,7 @@
 
 .slider{
     margin: 40px 0;
+    overflow: hidden;
 }
 
 .slider div{

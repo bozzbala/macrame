@@ -10,7 +10,7 @@ include __DB_DIR__ . "/db.php";
 <head>
     <?php include './inc/head.php' ?>
     <title>Макраме изделия</title>
-    <link href="style.css" rel="stylesheet">
+    <link href="styles/styles.css" rel="stylesheet">
     <script src="https://kit.fontawesome.com/012beec9f6.js" crossorigin="anonymous"></script>
     <link href="styles/slider.css" rel="stylesheet">
     <link rel="stylesheet" href="https://unpkg.com/flickity@2/dist/flickity.min.css">
