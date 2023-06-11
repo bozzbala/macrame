@@ -1,8 +1,8 @@
 <?php
 session_start();
 require_once 'define.php';
-global $conn;
 include __DB_DIR__ . "/db.php";
+global $conn;
 ?>
 <!DOCTYPE html>
 <html lang="en">

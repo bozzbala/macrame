@@ -11,11 +11,11 @@
 
 .products {
     display: flex;
-    align-items: flex-end;
+    align-items: flex-start;
     justify-content: space-between;
     flex-wrap: wrap;
     gap: 20px;
-    padding: 100px 0;
+    padding: 0 0 100px 0;
 }
 
 .products::after{
@@ -25,6 +25,7 @@
 
 .product {
     width: 23%;
+    aspect-ratio: 1/2;
     margin-top: 20px;
 }
 
@@ -33,24 +34,32 @@
     color: black;
 }
 
-
 .product-img {
-    aspect-ratio: 133/166;
+    width: 100%;
+    height: 70%;
     overflow: hidden;
     display: flex;
     justify-content: center;
-    margin: 0 auto;
 }
 
 .product-img img {
     height: 100%;
+    transition: 0.3s;
+}
+
+.product-img:hover img {
+    transform: scale(1.1);
+}
+
+.products-info{
+    height: 30%;
 }
 
 .product-title,
 .product-price {
     font-size: 18px;
     text-align: center;
-    margin-top: 6px;
+    margin-bottom: 6px;
 }
 
 .product-button {
