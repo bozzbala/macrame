@@ -16,6 +16,5 @@ $params = [
     "master" => $master
 ];
 
-
 // рендеринг в вывод
 $latte->render(__MODULES_DIR__.'/products/products.latte', $params);
