@@ -7,6 +7,8 @@ $router->addRoute('/index', __MODULES_DIR__ . '/home/run.php');
 $router->addRoute('/home', __MODULES_DIR__ . '/home/run.php');
 $router->addRoute('/products', __MODULES_DIR__ . '/products/run.php');
 $router->addRoute('/product', __MODULES_DIR__ . '/product/run.php');
+$router->addRoute('/store', __MODULES_DIR__ . '/store/run.php');
+$router->addRoute('/about', __MODULES_DIR__ . '/about/run.php');
 $request_uri = $_SERVER['REQUEST_URI'];
 $_get = $_GET;
 $_post = $_POST;

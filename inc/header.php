@@ -6,7 +6,7 @@
             <div class="sidebar-item"><a href="/products#master">ВИДЕОУРОКИ и МАСТЕР-КЛАССЫ</a></div>
             <div class="sidebar-item"><a href="/store">МАГАЗИН</a></div>
             <div class="sidebar-item"><a href="/products#yarns">НЕОБХОДИМЫЕ МАТЕРИАЛЫ</a></div>
-            <div class="sidebar-item"><a href="/products">ОБО МНЕ</a></div>
+            <div class="sidebar-item"><a href="/about">ОБО МНЕ</a></div>
         </div>
         <div class="sidebar-social-links">  
             <a href="#"><i class="fab fa-facebook-f"></i></a>
@@ -23,7 +23,7 @@
             <div class="menu"><a href="/products#master">ВИДЕОУРОКИ</a></div>
             <div class="menu"><a href="/store">МАГАЗИН</a></div>
             <div class="menu"><a href="/products#yarns">НЕОБХОДИМЫЕ МАТЕРИАЛЫ</a></div>
-            <div class="menu"><a href="#">ОБО МНЕ</a></div>
+            <div class="menu"><a href="/about">ОБО МНЕ</a></div>
             <div class="menu"><a href="/cart"><img src="../images/cart.png"></a></div>
         </nav>
         <div class="sidebar-open" onclick="sidebarToggle()"><i class="fas fa-bars"></i></i></div>
